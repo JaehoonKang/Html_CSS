@@ -235,8 +235,23 @@ input[type="search"]{
     padding: 0.5em 0;
     font-size: 1.8rem; 
     font-family: 'Noto Sans Bold', sans-serif;
+    text-shadow: 0px 1px 0px #f00, 1px 0px 0 #00f, 0px -1px 0 #0f0, -1px 0px 0 #f0f;
+
+
+    transition-property: color, font-size;
+    transition-duration: 3000ms;
+    transition-delay: 0s, 2000ms;
+    transition-timing-function: cubic-bezier(.18, -0.7, .83, .67);}
+
+    /* transition: color .5s 0s cubic-bezier(.18, -0.7, .83, .67), font-size  속기법! *
 }
 /* span에만 글자크기 크게+볼드처리 하기위해! */
+
+.menu span:hover, .menu li:focus span{
+    color: #ff0;
+    font-size: 2rem;
+
+}
 
 .sub-menu{
     /* background: orangered; */
