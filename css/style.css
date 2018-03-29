@@ -24,10 +24,16 @@ legend, .a11y-hidden{
     position: absolute;
     clip: rect(0,0,0,0);
 }
+
+html{
+    font-size: 10px;
+}
 /* 기본 스타일 */
 body{
     background-color: #fff;
     color: #181818;
+    font-size: 1.4rem;
+
     font-family: 'Noto Sans Regular', sans-serif;
 }
 /* 컨테이너 */
@@ -155,9 +161,13 @@ input[type="search"]{
 
 /* 내비게이션 */
 .navigation{
+    padding-top: 0.5em;
+    background-color: #988574;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
     /* height: 100px;
     overflow: auto; 컨텐츠가 넘어가기떄문에 스크롤생기게해라! */
-    /* background-color: #988574;
+    /* /*background-color: #988574;
     background-image: url("../images/normal.jpg");
     background-size: 200px 200px; 
     /*contain도 됨*/
@@ -207,6 +217,51 @@ input[type="search"]{
 
     /* background-image: repeating-radial-gradient(green 50px, yellow 100px); */
     /* background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%); */
+}
+.menu{
+    /* background: blueviolet; */
+    width:1000px;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    font-size:1.6rem;
+
+}
+.menu span{
+    /* background: green; */
+    display: block;
+    cursor: pointer;
+    padding: 0.5em 0;
+    font-size: 1.8rem; 
+    font-family: 'Noto Sans Bold', sans-serif;
+}
+/* span에만 글자크기 크게+볼드처리 하기위해! */
+
+.sub-menu{
+    /* background: orangered; */
+    margin-top: 0.5em;
+}
+
+.sub-menu li{
+    margin: 0.5em 0 0.5em 1em;
+}
+
+.sub-menu a{
+    /* background: skyblue; */
+    display: block;
+    padding: 0.5em 0;
+}
+
+
+/* .menu li{
+    float: left;
+}
+
+.menu li li {
+    float: none; 
+} */
+/*float효과 상쇄 => 아예 .menu > li으로해도됨! overflow:hidden생각!*/
 }
 
 /* 메인 콘텐츠 */
