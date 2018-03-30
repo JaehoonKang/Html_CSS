@@ -25,6 +25,14 @@ legend, .a11y-hidden{
     clip: rect(0,0,0,0);
 }
 
+/* clearfix */
+
+.clearfix::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
 html{
     font-size: 10px;
 }
@@ -37,14 +45,21 @@ body{
     font-family: 'Noto Sans Regular', sans-serif;
 }
 
-
+.btn-grid{
+    position: fixed;
+    top: 2em;
+    right: 2em;
+    background: #000;
+    color: #fff;
+    padding: 1em;
+}
 
 /* 컨테이너 */
 .container{
     position: relative;
 }
 /* relative기준으로 아래 수도 엘리먼트 absolute로 줄거라서 */
-.container:before{
+.is-act::before{
     content: "";
     position: absolute;
     width: 1000px;
@@ -300,7 +315,7 @@ input[type="search"]{
     float: none; 
 } */
 /*float효과 상쇄 => 아예 .menu > li으로해도됨! overflow:hidden생각!*/
-}
+
 
 /* 메인 콘텐츠 */
 .main{
@@ -308,32 +323,46 @@ input[type="search"]{
     /* display: flex;
     flex-flow: row wrap;
     justify-content: space-between; */
+    /* display: -ms-grid;
+    -ms-grid-columns: 65px 65px; 
+    -ms-grid-rows: auto auto; */
+    display: grid;
+    grid-template-columns: repeat(12, 65px);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px; 
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "r-b   r-b   r-b   r-b   news    news    news    news    news    news news news"
+    "board board board board twitter twitter twitter twitter twitter f-s  f-s  f-s";
 }
 
+/* gap은 따로 크기값 줘야한다! */
 
-.clearfix::after{
-    content: "";
-    clear: both;
-    display: block;
-}
+
+
 .main section{
     height: 30vh;
 }
 .recommend-book{
     background-color: teal;
+    grid-area: r-b;
 }
 
 .news{
     background-color: tan;
-}
+    grid-area: news;
+}   
 .board{
     background-color: skyblue;
+    grid-area: board;
 }
 .favorite-site{
     background-color: orangered;
+    grid-area: f-s;
 }
 .twitter{
     background-color: blueviolet;
+    grid-area: twitter;
 }
 /* 슬로건 */
 .slogan{
