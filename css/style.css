@@ -36,11 +36,32 @@ body{
 
     font-family: 'Noto Sans Regular', sans-serif;
 }
+
+
+
 /* 컨테이너 */
 .container{
-    height: 100vh;
-    background: gray;
+    position: relative;
 }
+/* relative기준으로 아래 수도 엘리먼트 absolute로 줄거라서 */
+.container:before{
+    content: "";
+    position: absolute;
+    width: 1000px;
+    height: 100%;
+    z-index: 100;
+    top: 0;
+    left: 50%;
+    /* margin-left: -500px; left 50%을 당기려고 하는 옵션 1*/
+    transform: translateX(-50%);
+    /* transform을 이용해서 당길 수 도 있음 */
+    background: repeating-linear-gradient(270deg, 
+    rgba(0, 0, 255, 0.2) 0px, rgba(0,0, 255, 0.2) 65px,  
+    transparent 65px, 
+    transparent 85px); 
+}
+/* hsla(60, 90%, 60%, 투명도 1) rgba말고 다른 색상 주는 방법! */
+
 /* 레이아웃 공통 */
 .header, .main, .slogan{
     width: 1000px;
@@ -60,6 +81,7 @@ body{
     grid-template-rows: 50px 50px;
     grid-column-gap: 20px;
 }
+
 /* header::after{
     content: "";
     position: absolute;
@@ -228,6 +250,7 @@ input[type="search"]{
     font-size:1.6rem;
 
 }
+
 .menu span{
     /* background: green; */
     display: block;
@@ -286,6 +309,8 @@ input[type="search"]{
     flex-flow: row wrap;
     justify-content: space-between; */
 }
+
+
 .clearfix::after{
     content: "";
     clear: both;
@@ -295,30 +320,20 @@ input[type="search"]{
     height: 30vh;
 }
 .recommend-book{
-    width: 350px;
     background-color: teal;
-    float: left;
 }
+
 .news{
-    width: 650px; 
     background-color: tan;
-    float: left;
 }
 .board{
-    width: 350px;
     background-color: skyblue;
-    float: left;
 }
 .favorite-site{
-    /* order: 1; */
-    width: 250px;
     background-color: orangered;
-    float: right;
 }
 .twitter{
-    width: 400px;
     background-color: blueviolet;
-    float: left;
 }
 /* 슬로건 */
 .slogan{
